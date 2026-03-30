@@ -1,0 +1,154 @@
+
+
+.metadata-panel {
+  background: #fff;
+  border-radius: 12px;
+  border: none;
+}
+
+.panel-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #5d6d7e;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1rem 1.25rem;
+  border-bottom: 2px solid #f0f4f8;
+  background: #f8fafc;
+  border-radius: 12px 12px 0 0;
+}
+
+.no-selection {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  color: #94a3b8;
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.element-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #f0f4f8;
+  border-bottom: 2px solid #e8ecf0;
+}
+
+.type-badge {
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.type-badge.node {
+  background: #e8f4fc;
+  color: #2e86ab;
+}
+
+.type-badge.edge {
+  background: #fef9e7;
+  color: #7d6608;
+}
+
+.element-id {
+  font-weight: 700;
+  color: #2c3e50;
+  font-size: 1rem;
+}
+
+.section {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #f0f4f8;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.75rem;
+}
+
+.prop-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.95rem;
+}
+
+.prop-key {
+  color: #5d6d7e;
+  font-weight: 600;
+}
+
+.prop-value {
+  color: #2c3e50;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+  font-size: 0.85rem;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: right;
+  font-weight: 500;
+}
+
+.prop-value.time {
+  font-size: 0.8rem;
+  color: #5dade2;
+  font-weight: 600;
+}
+
+/* Temporal Properties List */
+.temporal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.temporal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: #e8f4fc;
+  border-radius: 10px;
+  border-left: 4px solid #5dade2;
+}
+
+.ts-var {
+  font-weight: 700;
+  color: #2e86ab;
+  font-size: 0.9rem;
+}
+
+.ts-id {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  font-family: 'SF Mono', 'Monaco', 'Consolas', monospace;
+}
+
+.ts-hint {
+  margin: 0.75rem 0 0 0;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  text-align: center;
+  font-style: italic;
+}
+
+.no-props {
+  color: #94a3b8;
+  font-style: italic;
+  text-align: center;
+  padding: 1.25rem 0;
+  font-size: 0.95rem;
+}

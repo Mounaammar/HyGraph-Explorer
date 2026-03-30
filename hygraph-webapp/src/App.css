@@ -1,0 +1,409 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f4f6f8;
+  overflow: hidden;
+}
+
+/* ============================================================================
+   HEADER
+   ============================================================================ */
+
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  color: #1565c0;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(93, 173, 226, 0.25);
+}
+
+.app-header h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.3px;
+}
+
+.hygraph-logo {
+  height: 26px;
+  width: 28px;
+  object-fit: contain;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.create-entity-btn {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #2e86ab;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.create-entity-btn:hover {
+  background: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+.refresh-btn {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.85);
+  color: #5d6d7e;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: #2e86ab;
+  transform: translateY(-1px);
+}
+
+.view-mode-select {
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1a5276;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+/* ============================================================================
+   TAB BAR - Compact
+   ============================================================================ */
+
+.tab-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.25rem;
+  height: 48px;
+  background: #fff;
+  border-bottom: 1px solid #e5e8eb;
+  flex-shrink: 0;
+}
+
+.tab-buttons {
+  display: flex;
+  gap: 4px;
+  height: 100%;
+  align-items: center;
+}
+
+.tab-buttons button {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #7f8c9a;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s;
+  letter-spacing: -0.2px;
+}
+
+.tab-buttons button:hover {
+  background: #f0f4f8;
+  color: #4a5568;
+}
+
+.tab-buttons button.active {
+  background: linear-gradient(135deg, #5dade2 0%, #4a9fd4 100%);
+  color: white;
+  box-shadow: 0 3px 10px rgba(93, 173, 226, 0.35);
+}
+
+.tab-info {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+}
+
+.tab-info .stats {
+  color: #5d6d7e;
+  background: #f0f4f8;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  font-family: 'SF Mono', Monaco, monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tab-info .filter-badge {
+  color: #2e86ab;
+  background: #e3f2fd;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+/* ============================================================================
+   MAIN CONTENT WRAPPER - Fixed height layout
+   ============================================================================ */
+
+.main-content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+  padding: 12px;
+  gap: 12px;
+}
+
+/* Pattern Matching at Top */
+.pattern-matching-wrapper {
+  flex-shrink: 0;
+  max-width: 100%;
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+/* Main Content Grid - Graph + Sidebar */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.graph-area {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.sidebar {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow-y: auto;
+  padding: 0.75rem;
+}
+
+/* Time Series Area - Fixed height at bottom */
+.timeseries-area {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  overflow: hidden;
+  height: 260px;
+  min-height: 260px;
+  flex-shrink: 0;
+}
+
+/* ============================================================================
+   OPERATORS TAB
+   ============================================================================ */
+
+.operators-content {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.operators-content h2 {
+  margin: 0 0 1.25rem 0;
+  color: #2c3e50;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.operator-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.operator-card {
+  background: #fff;
+  border: 1px solid #e5e8eb;
+  border-radius: 10px;
+  padding: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.operator-card:hover {
+  border-color: #5dade2;
+  box-shadow: 0 4px 16px rgba(93, 173, 226, 0.2);
+  transform: translateY(-2px);
+}
+
+.operator-card.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.operator-card h3 {
+  margin: 0 0 0.4rem 0;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.operator-card p {
+  margin: 0;
+  color: #5d6d7e;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* ============================================================================
+   LOADING & ERROR
+   ============================================================================ */
+
+.loading-screen,
+.error-screen {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #5dade2 0%, #85c1e9 100%);
+  color: #1a5276;
+}
+
+.loading-screen h2,
+.error-screen h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.4rem;
+}
+
+.error-screen button {
+  margin-top: 1rem;
+  padding: 0.5rem 1.25rem;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  color: #2e86ab;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+/* ============================================================================
+   INGESTION TAB
+   ============================================================================ */
+
+.ingestion-content {
+  padding: 20px;
+  overflow-y: auto;
+  height: calc(100vh - 140px);
+  background: #f8f9fa;
+}
+
+
+.instance-selector {
+  padding: 4px 10px;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  background: white;
+  color: #1a5276;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 200px;
+}
+.instance-selector:hover {
+  border-color: #5dade2;
+}
+
+/* ============================================================================
+   RESPONSIVE
+   ============================================================================ */
+
+@media (max-width: 1000px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .sidebar {
+    max-height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tab-buttons button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .timeseries-area {
+    height: 220px;
+    min-height: 220px;
+  }
+}
+
+/* Taller screens - give more space to timeseries */
+@media (min-height: 900px) {
+  .timeseries-area {
+    height: 300px;
+    min-height: 300px;
+  }
+}
+
+@media (min-height: 1080px) {
+  .timeseries-area {
+    height: 350px;
+    min-height: 350px;
+  }
+}
+
+/* Instance Selector */
+.instance-selector {
+  padding: 4px 10px;
+  border: 1px solid #bbdefb;
+  border-radius: 6px;
+  background: white;
+  color: #1a5276;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  min-width: 200px;
+  max-width: 400px;
+}
+.instance-selector:hover {
+  border-color: #5dade2;
+}
