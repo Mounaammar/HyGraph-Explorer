@@ -17,7 +17,6 @@ cd hygraph_core/docker
 docker compose up -d
 ```
 
-Starts PostgreSQL 16 with Apache AGE and TimescaleDB on port `5433`.
 
 ### 2. Install Python dependencies
 
@@ -41,7 +40,7 @@ from hygraph_core.ingest.csv_loader import load_csv
 load_csv(csv_dir="inputFiles/metrla_csv", graph_name="hygraph")
 ```
 
-**NYC Citi Bike:** Place the generated CSV files in `hygraph_core/inputFiles/citibike_csv/`, then load:
+**NYC Citi Bike:** Download it from : https://zenodo.org/records/13846868. Place json files in `hygraph_core/inputFiles/citibike/`, then load:
 
 ```python
 from hygraph_core.ingest.csv_loader import load_csv
