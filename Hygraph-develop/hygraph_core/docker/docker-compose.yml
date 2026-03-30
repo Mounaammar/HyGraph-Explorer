@@ -1,0 +1,35 @@
+services:
+  pg:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hygraph-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=hygraph
+    ports:
+      - "5433:5432"             # host 5433 -> container 5432
+    command:
+      - "postgres"
+      - "-c"
+      - "shared_preload_libraries=timescaledb"
+      - "-c"
+      - "max_wal_size=2GB"
+      - "-c"
+      - "checkpoint_timeout=30min"
+      - "-c"
+      - "maintenance_work_mem=512MB"
+      - "-c"
+      - "work_mem=256MB"
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d:ro   # Init scripts
+      - pgdata:/var/lib/postgresql/data         # Persistent data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d hygraph"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdata:

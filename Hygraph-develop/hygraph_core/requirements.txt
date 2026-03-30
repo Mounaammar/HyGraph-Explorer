@@ -1,0 +1,30 @@
+# HyGraph - Python Dependencies
+
+# Database
+psycopg2-binary>=2.9.9
+psycopg-pool>=3.2.0
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Time Series Analysis
+stumpy>=1.12.0  # For MASS algorithm / pattern matching
+
+# Graph Analysis (optional, for in-memory operations)
+networkx>=3.1
+
+# Web API
+fastapi>=0.109.0
+uvicorn>=0.27.0
+pydantic>=2.5.0
+
+# Utilities
+python-dateutil>=2.8.2
+tabulate>=0.9.0  # For pretty table display
+
+# Development (optional)
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+black>=23.0.0
+mypy>=1.5.0
